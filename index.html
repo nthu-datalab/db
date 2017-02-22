@@ -1,156 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>CS574000 Cloud Databases</title>
-    <meta name="Description" content="Implementation, architectural design, and trade-offs.">
-    <meta name="author" content="Shan-Hung Wu">
-    <script src="https://use.fontawesome.com/0bc11e7eba.js"></script>
-    <!-- Facebook Open Graph -->
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="CS574000 Cloud Databases">
-    <meta property="og:title" content="CS574000 Cloud Databases" />
-    <meta property="og:url" content="http://datalab-lsml.appspot.com/" />
-    <meta property="og:description" content="Implementation, architectural design, and trade-offs." />
-    <meta property="og:image" content="http://www.cs.nthu.edu.tw/~shwu/images/og-image.jpg" />
-
-    <link rel="shortcut icon" href="images/nthu.png" />
-
-    <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-    <link rel="stylesheet" href="./css/main.css" />
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>CS574000 Cloud Databases</title>
+        <meta name="Description" content="Implementation, architectural design, and trade-offs.">
+        <meta name="author" content="Shan-Hung Wu">
+        <script src="https://use.fontawesome.com/0bc11e7eba.js"></script>
+        <!-- Facebook Open Graph -->
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="CS574000 Cloud Databases">
+        <meta property="og:title" content="CS574000 Cloud Databases" />
+        <meta property="og:url" content="http://datalab-lsml.appspot.com/" />
+        <meta property="og:description" content="Implementation, architectural design, and trade-offs." />
+        <meta property="og:image" content="http://www.cs.nthu.edu.tw/~shwu/images/og-image.jpg" />
+        <link rel="shortcut icon" href="images/nthu.png" />
+        <!-- Bootstrap Core CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="./css/main.css" />
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-</head>
-
-<body>
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#lsml-navbar-collapse">
+        <![endif]-->
+    </head>
+    <body>
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#lsml-navbar-collapse">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
-                </button>
-                <a id="nav~~shwu" class="navbar-brand" href="http://www.cs.nthu.edu.tw/~shwu/">Shan-Hung Wu</a>
+                    </button>
+                    <a id="nav~~shwu" class="navbar-brand" href="http://www.cs.nthu.edu.tw/~shwu/">Shan-Hung Wu</a>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="lsml-navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a id="nav~~description" href="#description">Description</a>
+                        </li>
+                        <li>
+                            <a id="nav~~announcement" href="#announcement">Announcement</a>
+                        </li>
+                        <li class="dropdown">
+                            <a id="nav~~curriculum" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Curriculum <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a id="nav~~lecture01" href="#lecture01" alt="">01. Introduction</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a id="nav~~lecture02" href="#lecture02" alt="">02. Using a DBMS</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a id="nav~~resources" href="#resources">Resources</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
             </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="lsml-navbar-collapse">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a id="nav~~description" href="#description">Description</a>
-                    </li>
-                    <li>
-                        <a id="nav~~announcement" href="#announcement">Announcement</a>
-                    </li>
-                    <li class="dropdown">
-                        <a id="nav~~curriculum" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Curriculum <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a id="nav~~lecture01" href="#lecture01" alt="">01. Introduction</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a id="nav~~lecture02" href="#lecture02" alt="">02. Using a DBMS</a></li>
+            <!-- /.container -->
+        </nav>
+        <!-- Full width image header with portrait -->
+        <header class="header image-bg-header">
+            <div class="header-content header-text">
+                <h2>CS574000 Cloud Databases</h2>
+                <h4>Implementation, architectural design, and trade-offs.</h4>
+            </div>
+        </header>
+        <!-- Content Sections -->
+        <section id="description">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+                        <h1 class="section-heading">Description</h1>
+                        <p>This course provides an overview of the current database
+                            management systems in the cloud, and explains how they are different
+                            from traditional database systems. The goal is to get students
+                            familiar with some well-known implementations like NoSQL databases,
+                            Google BigTable, Google MegaStore, and Google Spanner etc., and more
+                            importantly, to help students make better decisions on the design
+                            tradeoffs when configuring/building their own database systems given
+                            a particular set of target applications (tenants) in mind.
+                        </p>
+                        <p>Proper understanding of Java/OOP programming and data
+                            structure is required.
+                        </p>
+                        <h4>Instructor</h4>
+                        <div class="float-container">
+                            <div class="float-item">
+                                <img class="img-portrait" src="./images/portrait-2011-square.jpg" alt="">
+                                <p class="text-center"><a id="description~~shwu" href="http://www.cs.nthu.edu.tw/~shwu/" target="_blank">Shan-Hung Wu<br/>吳尚鴻</a></p>
+                            </div>
+                            <br class="clearfloat">
+                        </div>
+                        <!-- float-container -->
+                        <h4>Teaching Assistants</h4>
+                        <div class="float-container">
+                            <div class="float-item">
+                                <img class="img-portrait" src="images/ta/slmt.jpeg" alt="">
+                                <p class="text-center"><a id="description~~yslin" href="mailto:yslin@datalab.cs.nthu.edu.tw">Yu-Shan Lin<br/>林玉山*</a>
+                                </p>
+                            </div>
+                            <div class="float-item">
+                                <img class="img-portrait" src="images/ta/ct.png" alt="">
+                                <p class="text-center"><a id="description~~ctsai" href="mailto:ctsai@datalab.cs.nthu.edu.tw">Ching Tsai<br/>蔡靖</a>
+                                </p>
+                            </div>
+                            <br class="clearfloat">
+                        </div>
+                        <!-- float-container -->
+                    </div>
+                </div>
+                <!-- /.row -->
+                <div class="row">
+                    <div class="col-sm-6 col-md-5 col-md-offset-1 col-lg-4 col-lg-offset-2">
+                        <h4>Time &amp; Location</h4>
+                        <ul>
+                            <li>Video Lecture: Update at Tue. 10am-12pm </li>
+                            <li>Lab: Thu. 9-11am at Delta 104</li>
+                            <li>Office hour: Thu. 3-5pm at Delta 723/724</li>
                         </ul>
-                    </li>
-                    <li>
-                        <a id="nav~~resources" href="#resources">Resources</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
-    </nav>
-
-    <!-- Full width image header with portrait -->
-    <header class="header image-bg-header">
-        <div class="header-content header-text">
-            <h2>CS574000 Cloud Databases</h2>
-            <h4>Implementation, architectural design, and trade-offs.</h4>
-        </div>
-    </header>
-
-    <!-- Content Sections -->
-
-    <section id="description">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
-                    <h1 class="section-heading">Description</h1>
-                    <p>This course provides an overview of the current database
-              				management systems in the cloud, and explains how they are different
-              				from traditional database systems. The goal is to get students
-              				familiar with some well-known implementations like NoSQL databases,
-              				Google BigTable, Google MegaStore, and Google Spanner etc., and more
-              				importantly, to help students make better decisions on the design
-              				tradeoffs when configuring/building their own database systems given
-              				a particular set of target applications (tenants) in mind.</p>
-              			<p>Proper understanding of Java/OOP programming and data
-              				structure is required.</p>
-                    <h4>Instructor</h4>
-                    <div class="float-container">
-                        <div class="float-item">
-                            <img class="img-portrait" src="./images/portrait-2011-square.jpg" alt="">
-                            <p class="text-center"><a id="description~~shwu" href="http://www.cs.nthu.edu.tw/~shwu/" target="_blank">Shan-Hung Wu<br/>吳尚鴻</a></p>
-                        </div>
-                        <br class="clearfloat">
                     </div>
-                    <!-- float-container -->
-
-                    <h4>Teaching Assistants</h4>
-                    <div class="float-container">
-                        <div class="float-item">
-                            <img class="img-portrait" src="images/ta/slmt.jpeg" alt="">
-                            <p class="text-center"><a id="description~~yslin" href="mailto:yslin@datalab.cs.nthu.edu.tw">Yu-Shan Lin<br/>林玉山*</a>
-                            </p>
-                        </div>
-                        <div class="float-item">
-                            <img class="img-portrait" src="images/ta/ct.png" alt="">
-                            <p class="text-center"><a id="description~~ctsai" href="mailto:ctsai@datalab.cs.nthu.edu.tw">Ching Tsai<br/>蔡靖</a>
-                            </p>
-                        </div>
-                        <br class="clearfloat">
+                    <div class="col-sm-6 col-md-5 col-lg-4">
+                        <h4>Grading Policy</h4>
+                        <ul>
+                            <li>Assignments (x5): 40%</li>
+                            <li>Midterm project: 30%</li>
+                            <li>Final project : 30%</li>
+                        </ul>
                     </div>
-                    <!-- float-container -->
                 </div>
-            </div>
-            <!-- /.row -->
-            <div class="row">
-                <div class="col-sm-6 col-md-5 col-md-offset-1 col-lg-4 col-lg-offset-2">
-                    <h4>Time &amp; Location</h4>
-                    <ul>
-                        <li>Video Lecture: Update at Tue. 10am-12pm </li>
-                        <li>Lab: Thu. 9-11am at Delta 104</li>
-                        <li>Office hour: Thu. 3-5pm at Delta 723/724</li>
-                    </ul>
-                </div>
-                <div class="col-sm-6 col-md-5 col-lg-4">
-                    <h4>Grading Policy</h4>
-                    <ul>
-                        <li>Assignments (x5): 40%</li>
-                        <li>Midterm project: 30%</li>
-                        <li>Final project : 30%</li>
-                    </ul>
-                </div>
-            </div>
-            <!-- /.row -->
-            <div class="row">
-                <div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
-                    <h4>Prerequisits</h4>
-                    <p>This course is intended for senior undergraduate and junior graduate students who understand
+                <!-- /.row -->
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+                        <h4>Prerequisits</h4>
+                        <p>This course is intended for senior undergraduate and junior graduate students who understand
                         <ul>
                             <li>OOP Programming,</li>
                             <li>Multi-threaded Programming,</li>
@@ -158,113 +148,106 @@
                             <li>Version Control.</li>
                         </ul>
                         We use Java as the main programming language throughout the course. Although not required, background knowledge about operating system will be helpful.
-                    </p>
+                        </p>
+                    </div>
+                    <!-- /.row -->
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="container">
+                <div id="announcement" class="row anchor">
+                    <div class="alert alert-success col-sm-offset-0 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+                        <h1 class="section-heading">Announcement</h1>
+                        <ul>
+                            <li>
+                                <p>2017/02/21 - <a id="announcement~~lecture02" href="#lecture02" alt="">2. Using a DBMS</a>: slides and video announced</p>
+                            </li>
+                            <li>
+                                <p>2017/02/14 - <a id="announcement~~lecture01" href="#lecture01" alt="">1. Introduction</a>: slides announced</p>
+                            </li>
+                        </ul>
+                        <!--
+                            <div id="announcement-more" class="collapse">
+                                <ul>
+
+                                    <li>
+                                        <p>2016/09/19 - <a id="announcement~~lecture01-03" href="#lecture01" alt="">01-03. Math Review</a>: slides announced</p>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <p class="text-right">
+                                <button id="announcement~~more" class="btn btn-success" data-toggle="collapse" data-target="#announcement-more"><span class="glyphicon glyphicon-list"></span> More</button>
+                            </p>
+                            -->
+                    </div>
                 </div>
                 <!-- /.row -->
             </div>
-        </div>
-    </section>
-
-    <section>
-        <div class="container">
-            <div id="announcement" class="row anchor">
-                <div class="alert alert-success col-sm-offset-0 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
-                    <h1 class="section-heading">Announcement</h1>
-                    <ul>
-                      <li>
-                          <p>2017/02/21 - <a id="announcement~~lecture02" href="#lecture02" alt="">2. Using a DBMS</a>: slides and video announced</p>
-                      </li>
-                      <li>
-                          <p>2017/02/14 - <a id="announcement~~lecture01" href="#lecture01" alt="">1. Introduction</a>: slides announced</p>
-                      </li>
-                    </ul>
-                    <!--
-                    <div id="announcement-more" class="collapse">
-                        <ul>
-
-                            <li>
-                                <p>2016/09/19 - <a id="announcement~~lecture01-03" href="#lecture01" alt="">01-03. Math Review</a>: slides announced</p>
-                            </li>
-                        </ul>
+            <!-- /.container -->
+        </section>
+        <section id="curriculum">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+                        <h1 class="section-heading">Curriculum</h1>
+                        <p>If you have any feedback, feel free to contact: <span class="text-primary">shwu [AT] cs.nthu.edu.tw</span></p>
+                        <h4 id="lecture01" class="anchor">Lecture 01</h4>
+                        <div class="well">
+                            <h4><span class="glyphicon glyphicon-blackboard"></span> Introduction</h4>
+                            <blockquote>What's Clound Database? | About This Course... | FAQ</blockquote>
+                            <p class="text-right">
+                                <a id="lecture01~~slides" href="slides/01_Introduction.pdf" class="btn btn-primary"><span class="glyphicon glyphicon-blackboard"></span> Slides</a>
+                            </p>
+                            <h4><span class="glyphicon glyphicon-wrench"></span> General Rules For Assignments</h4>
+                            <blockquote>The announcement the general rules for the assignments in this course and the introduction to the platform we use to manage assignments.</blockquote>
+                            <p class="text-right">
+                                <a id="lecture01~~lab" href="labs/1_1_general_rules_for_assignments.pdf" class="btn btn-primary"><span class="glyphicon glyphicon-blackboard"></span> Slides</a>
+                            </p>
+                            <h4><span class="glyphicon glyphicon-wrench"></span> Introduction to Git</h4>
+                            <blockquote>This lab guides you through the main idea of version control systems and the basic usage of Git.</blockquote>
+                            <p class="text-right">
+                                <a id="lecture01~~lab" href="labs/1_2_Introduction_To_Git.pdf" class="btn btn-primary"><span class="glyphicon glyphicon-blackboard"></span> Slides</a>
+                            </p>
+                        </div>
+                        <h4 id="lecture02" class="anchor">Lecture 02</h4>
+                        <div class="well">
+                            <h4><span class="glyphicon glyphicon-blackboard"></span> Using a DBMS</h4>
+                            <blockquote>Assigned Readings &amp; Java Concurrency<br>ER  &amp; Relational Models<br>SQL &amp; Query Algebra</blockquote>
+                            <p class="text-right">
+                                <a id="lecture02~~video" href="https://www.youtube.com/playlist?list=PLlPcwHqLqJDmI1IzXs-sNm07iyLtrK0C4" class="btn btn-success"><span class="glyphicon glyphicon-play"></span> Video</a>
+                                <a id="lecture02~~slides" href="slides/02_Using_DBMS.pdf" class="btn btn-primary"><span class="glyphicon glyphicon-blackboard"></span> Slides</a>
+                            </p>
+                        </div>
+                        <!--
+                            <h4 id="final" class="anchor text-info">Final Competition</h4>
+                            <div class="well well-info">
+                                <h4><span class="glyphicon glyphicon-flag"></span> BLABLA</h4>
+                                <blockquote>
+                                </blockquote>
+                                <p class="text-right">
+                                    <a id="lecture~~final" href="labs/BLA.html" class="btn btn-primary"><span class="glyphicon glyphicon-flag"></span> GitLab</a>
+                                </p>
+                            </div>
+                            -->
                     </div>
-
-                    <p class="text-right">
-                        <button id="announcement~~more" class="btn btn-success" data-toggle="collapse" data-target="#announcement-more"><span class="glyphicon glyphicon-list"></span> More</button>
-                    </p>
-                    -->
                 </div>
+                <!-- /.row -->
             </div>
-            <!-- /.row -->
-        </div>
-        <!-- /.container -->
-    </section>
+            <!-- /.container -->
+        </section>
+        <section id="resources">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+                        <h1 class="section-heading">Resources</h1>
+                        <p>Following provides links to some useful online resources. If this course starts your CloudDB journey, don't stop here. Enroll yourself in advanced courses (shown below) to learn more.</p>
+                        <h4>Other Course Materials</h4>
+                        <p>For more course materials (such as assignments, score sheets, etc.) and online forum please refer to the GitLab.</p>
 
-    <section id="curriculum">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
-                    <h1 class="section-heading">Curriculum</h1>
-                    <p>If you have any feedback, feel free to contact: <span class="text-primary">shwu [AT] cs.nthu.edu.tw</span></p>
-
-                    <h4 id="lecture01" class="anchor">Lecture 01</h4>
-                    <div class="well">
-                        <h4><span class="glyphicon glyphicon-blackboard"></span> Introduction</h4>
-                        <blockquote>What's Clound Database? | About This Course... | FAQ</blockquote>
                         <p class="text-right">
-                            <a id="lecture01~~slides" href="slides/01_Introduction.pdf" class="btn btn-primary"><span class="glyphicon glyphicon-blackboard"></span> Slides</a>
-                        </p>
-                        <h4><span class="glyphicon glyphicon-wrench"></span> General Rules For Assignments</h4>
-                        <blockquote>The announcement the general rules for the assignments in this course and the introduction to the platform we use to manage assignments.</blockquote>
-                        <p class="text-right">
-                            <a id="lecture01~~lab" href="labs/1_1_general_rules_for_assignments.pdf" class="btn btn-primary"><span class="glyphicon glyphicon-blackboard"></span> Slides</a>
-                        </p>
-                        <h4><span class="glyphicon glyphicon-wrench"></span> Introduction to Git</h4>
-                        <blockquote>This lab guides you through the main idea of version control systems and the basic usage of Git.</blockquote>
-                        <p class="text-right">
-                            <a id="lecture01~~lab" href="labs/1_2_Introduction_To_Git.pdf" class="btn btn-primary"><span class="glyphicon glyphicon-blackboard"></span> Slides</a>
-                        </p>
-                    </div>
-
-                    <h4 id="lecture02" class="anchor">Lecture 02</h4>
-                    <div class="well">
-                        <h4><span class="glyphicon glyphicon-blackboard"></span> Using a DBMS</h4>
-                        <blockquote>Assigned Readings &amp; Java Concurrency<br>ER  &amp; Relational Models<br>SQL &amp; Query Algebra</blockquote>
-                        <p class="text-right">
-                            <a id="lecture02~~video" href="https://www.youtube.com/playlist?list=PLlPcwHqLqJDmI1IzXs-sNm07iyLtrK0C4" class="btn btn-success"><span class="glyphicon glyphicon-play"></span> Video</a>
-
-                            <a id="lecture02~~slides" href="slides/02_Using_DBMS.pdf" class="btn btn-primary"><span class="glyphicon glyphicon-blackboard"></span> Slides</a>
-
-                        </p>
-                    </div>
-                    <!--
-                    <h4 id="final" class="anchor text-info">Final Competition</h4>
-                    <div class="well well-info">
-                        <h4><span class="glyphicon glyphicon-flag"></span> BLABLA</h4>
-                        <blockquote>
-                        </blockquote>
-                        <p class="text-right">
-                            <a id="lecture~~final" href="labs/BLA.html" class="btn btn-primary"><span class="glyphicon glyphicon-flag"></span> GitLab</a>
-                        </p>
-                    </div>
-                  -->
-                </div>
-            </div>
-            <!-- /.row -->
-        </div>
-        <!-- /.container -->
-    </section>
-
-    <section id="resources">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
-                    <h1 class="section-heading">Resources</h1>
-                    <p>Following provides links to some useful online resources. If this course starts your CloudDB journey, don't stop here. Enroll yourself in advanced courses (shown below) to learn more.</p>
-
-                    <h4>Other Course Materials</h4>
-                    <p>For more course materials (such as assignments, score sheets, etc.) and online forum please refer to the GitLab.</p>
-                    <p class="text-right">
-                        <a id="resources~~ilms" href="https://shwu10.cs.nthu.edu.tw/groups/courses-cloud-databases-2017-spring" target="_blank" class="btn btn-primary"><span class="fa fa-gitlab" aria-hidden="true"></span>   GitLab</a>
+                            <a id="resources~~ilms" href="https://shwu10.cs.nthu.edu.tw/groups/courses-cloud-databases-2017-spring" target="_blank" class="btn btn-primary"><span class="fa fa-gitlab" aria-hidden="true"></span>   GitLab</a>
                         <h4>Reference Books</h4>
                         <ul>
                             <li>
@@ -283,33 +266,33 @@
                                 <p>Rachid Guerraoui et al., <em>Introduction to Reliable Distributed Programming</em>, Springer, 2006, ISBN: 3540288457</p>
                             </li>
                         </ul>
+                        <h4>Documentation</h4>
+                        <p>Describes the API operations for the VanillaDB in detail.</p>
+                        <p class="text-right">
+                          <a href="docs/core-0.2.1-javadoc/index.html" class="btn btn-primary"><span class="fa fa-book" aria-hidden="true"></span>   Java Doc</a>
+
+                    </div>
                 </div>
+                <!-- /.row -->
             </div>
-            <!-- /.row -->
-        </div>
-        <!-- /.container -->
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-                    <p class="text-center">Copyright &copy; DataLab 2017</p>
+            <!-- /.container -->
+        </section>
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <p class="text-center">Copyright &copy; DataLab 2017</p>
+                    </div>
                 </div>
+                <!-- /.row -->
             </div>
-            <!-- /.row -->
-        </div>
-        <!-- /.container -->
-    </footer>
-
-    <!-- jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Bootstrap Core JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-    <script src="./js/main.js"></script>
-
-</body>
-
+            <!-- /.container -->
+        </footer>
+        <!-- jQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <!-- Bootstrap Core JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="./js/main.js"></script>
+    </body>
 </html>
