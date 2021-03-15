@@ -55,9 +55,9 @@
                                 <li><a id="nav~~lecture00" href="#lecture00" alt="">00. Introduction</a></li>
                                 <li><a id="nav~~lecture01" href="#lecture01" alt="">01. Using a DBMS</a></li>
                                 <li><a id="nav~~lecture02" href="#lecture02" alt="">02. Data Modeling</a></li>
-                                <!-- <li><a id="nav~~lecture03" href="#lecture03" alt="">03. Architecture and Interfaces</a></li>
+                                <li><a id="nav~~lecture03" href="#lecture03" alt="">03. Architecture and Interfaces</a></li>
                                 <li><a id="nav~~lecture04" href="#lecture04" alt="">04. Server and Threads</a></li>
-                                <li><a id="nav~~lecture05" href="#lecture05" alt="">05. Query Processing</a></li>
+                                <!-- <li><a id="nav~~lecture05" href="#lecture05" alt="">05. Query Processing</a></li>
                                 <li><a id="nav~~lecture06" href="#lecture06" alt="">06. Data Access and File Management</a></li>
                                 <li><a id="nav~~lecture07" href="#lecture07" alt="">07. Memory Management</a></li>
                                 <li><a id="nav~~lecture08" href="#lecture08" alt="">08. Record Management</a></li>
@@ -193,17 +193,11 @@
                         <h1 class="section-heading">Announcement</h1>
                         <ul>
                             <li>
+                                <p>2021/3/15 - <a id="announcement~~lecture4" href="#lecture04" alt="">Lecture04</a>: slide announced</p>
+                            </li>
+                            <li>
                                 <p>2021/3/11 - <a id="announcement~~assignment1" href="#lecture02" alt="">Assignment1</a>: assignment announced</p>
                             </li> 
-                            <li>
-                                <p>2021/3/10 - <a id="announcement~~lab2" href="#lecture02" alt="">Lab02</a>: slides announced</p>
-                            </li>
-                            <li>
-                                <p>2021/3/9 - <a id="announcement~~lecture2" href="#lecture02" alt="">Lecture02</a>: slide updated</p>
-                            </li>
-                            <li>
-                                <p>2021/3/8 - <a id="announcement~~lecture3" href="#lecture03" alt="">Lecture03</a>: slide announced</p>
-                            </li>
                         </ul>
                             
                         <!-- <ul>
@@ -213,6 +207,22 @@
                         </ul> -->
                         
                         <!-- Put overflowed announcement here -->  
+                        <div id="announcement-more" class="collapse">
+                            <ul>
+                                <li>
+                                    <p>2021/3/10 - <a id="announcement~~lab2" href="#lecture02" alt="">Lab02</a>: slides announced</p>
+                                </li>
+                                <li>
+                                    <p>2021/3/9 - <a id="announcement~~lecture2" href="#lecture02" alt="">Lecture02</a>: slide updated</p>
+                                </li>
+                                <li>
+                                    <p>2021/3/8 - <a id="announcement~~lecture3" href="#lecture03" alt="">Lecture03</a>: slide announced</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <p class="text-right">
+                          <button id="announcement~~more" class="btn btn-success" data-toggle="collapse" data-target="#announcement-more"><span class="glyphicon glyphicon-list"></span> More</button>
+                        </p>
                     </div>
                 </div>
                 <!-- /.row -->
@@ -286,13 +296,20 @@
 
                         <h4 id="lecture03" class="anchor">Lecture 03</h4>
                         <div class="well">
-
 							<h4><span class="glyphicon glyphicon-blackboard"></span> Architecture and Interfaces</h4>
                             <blockquote>Architecture Overview | SQL | JDBC | Native Interface | RecordFile | MetaData</blockquote>
                             <p class="text-right">
                                 <a id="lecture03~~slides" href="slides/03_Architecture_and_Interfaces.pdf" target="_blank" class="btn btn-primary"><span class="glyphicon glyphicon-blackboard"></span> Slides</a>
                             </p>
-                            
+                        </div>
+
+                        <h4 id="lecture04" class="anchor">Lecture 04</h4>
+                        <div class="well">
+                            <h4><span class="glyphicon glyphicon-blackboard"></span> Server and Threads</h4>
+                            <blockquote>Introduction | Threads Processes | Supporting Concurrent Clients | Embedded Clients vs. Remote Clients | RMI | JDBC Implementation</blockquote>
+                            <p class="text-right">
+                                <a id="lecture04~~slides" href="slides/04_Server_and_Threads.pdf" target="_blank" class="btn btn-primary"><span class="glyphicon glyphicon-blackboard"></span> Slides</a>
+                            </p> 
                         </div>
 
                     </div>
