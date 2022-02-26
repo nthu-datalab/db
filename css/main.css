@@ -54,6 +54,7 @@ blockquote {
 .img-portrait {
     width: 120px;
     height: 120px;
+    object-fit: cover;
     border: 0px solid white;
     border-radius: 9999px;
 }
